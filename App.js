@@ -7,14 +7,23 @@ export default function App() {
       <View
         style={{
           backgroundColor: "dodgerblue",
-          width: 350,
+          width: 100,
           // flex: 1,
-          flexShrink: 1,
+          // flexShrink: 1,
           height: 100,
           // flexBasis: 100,
         }}
       ></View>
-      <View style={{ backgroundColor: "gold", width: 100, height: 100 }}></View>
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 100,
+          top: 20,
+          left: 20,
+          position: "absolute",
+        }}
+      ></View>
       <View
         style={{ backgroundColor: "tomato", width: 100, height: 100 }}
       ></View>
