@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, Image, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  SafeAreaView,
+  TouchableHighlight,
+} from "react-native";
 
 export default function App() {
   const handlePress = () => console.log("Press");
@@ -9,15 +15,17 @@ export default function App() {
       <Text numberOfLines={1} onPress={handlePress}>
         Hello React Native
       </Text>
-      <Image
-        blurRadius={10}
-        fadeDuration={1000}
-        source={{
-          width: 200,
-          height: 300,
-          uri: "https://picsum.photos/200/300",
-        }}
-      />
+      <TouchableHighlight onPress={handlePress}>
+        <Image
+          // blurRadius={10}
+          fadeDuration={1000}
+          source={{
+            width: 200,
+            height: 300,
+            uri: "https://picsum.photos/200/300",
+          }}
+        />
+      </TouchableHighlight>
     </SafeAreaView>
   );
 }
