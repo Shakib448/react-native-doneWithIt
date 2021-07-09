@@ -1,18 +1,23 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, Image, SafeAreaView } from "react-native";
 
 export default function App() {
   const handlePress = () => console.log("Press");
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Text numberOfLines={1} onPress={handlePress}>
-          Open up App.js Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Odio molestiae dignissimos, laborum quo ut facere itaque sequi
-          corporis quasi cumque.
-        </Text>
-      </View>
+      <Text numberOfLines={1} onPress={handlePress}>
+        Hello React Native
+      </Text>
+      <Image
+        blurRadius={10}
+        fadeDuration={1000}
+        source={{
+          width: 200,
+          height: 300,
+          uri: "https://picsum.photos/200/300",
+        }}
+      />
     </SafeAreaView>
   );
 }
