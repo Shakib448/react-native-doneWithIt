@@ -5,11 +5,15 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View
-        style={{ backgroundColor: "dodgerblue", width: 100, height: 100 }}
+        style={{ backgroundColor: "dodgerblue", width: 100, height: 300 }}
       ></View>
       <View style={{ backgroundColor: "gold", width: 100, height: 100 }}></View>
       <View
         style={{ backgroundColor: "tomato", width: 100, height: 100 }}
+      ></View>
+      <View style={{ backgroundColor: "gray", width: 100, height: 100 }}></View>
+      <View
+        style={{ backgroundColor: "greenyellow", width: 100, height: 100 }}
       ></View>
     </View>
   );
@@ -23,5 +27,7 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     alignItems: "center",
     justifyContent: "center",
+    flexWrap: "wrap",
+    alignContent: "center",
   },
 });
