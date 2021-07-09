@@ -53,8 +53,8 @@ export default function App() {
             flexDirection: "row",
             justifyContent: "space-between",
             width: "100%",
-            paddingLeft: 10,
-            paddingRight: 10,
+            paddingLeft: 15,
+            paddingRight: 15,
             position: "absolute",
             top: 25,
           }}
