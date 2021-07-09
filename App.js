@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, View, Button, Alert } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Button,
+  Alert,
+  StatusBar,
+  Platform,
+} from "react-native";
 
 export default function App() {
   const handleAlert = () => {
@@ -10,9 +17,9 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Button color="orange" title="Alert" onPress={handleAlert}></Button>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -20,8 +27,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
