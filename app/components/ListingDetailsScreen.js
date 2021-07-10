@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 import AppText from "./AppText";
+import ListItem from "./ListItem";
 
 const ListingDetailsScreen = () => {
   return (
@@ -12,6 +13,11 @@ const ListingDetailsScreen = () => {
           $100
         </AppText>
       </View>
+      <ListItem
+        title="Muktadir Ahamed"
+        image={require("../assets/mosh.png")}
+        subTitle="5 Listing"
+      />
     </View>
   );
 };
