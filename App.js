@@ -1,10 +1,12 @@
 import React from "react";
-import { Platform, StatusBar, StyleSheet, SafeAreaView } from "react-native";
+import { Platform, StatusBar, StyleSheet, View, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import AppText from "./app/components/AppText";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({
