@@ -2,9 +2,11 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 import colors from "../config/colors";
 
-const AppText = ({ children, color = "black" }) => {
+const AppText = ({ children, style, color = "black" }) => {
   return (
-    <Text style={[styles.text, { color: colors[color] }]}>{children}</Text>
+    <Text style={[styles.text, { color: colors[color] }, style]}>
+      {children}
+    </Text>
   );
 };
 
