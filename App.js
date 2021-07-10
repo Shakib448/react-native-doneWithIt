@@ -1,12 +1,18 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View, Text } from "react-native";
+import Card from "./app/components/Card";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import AppText from "./app/components/AppText";
-import { AntDesign } from "@expo/vector-icons";
 
 export default function App() {
-  return <WelcomeScreen />;
+  return (
+    <View style={{ backgroundColor: "#f8f4f4", padding: 20, paddingTop: 100 }}>
+      <Card
+        title="Red jacket for sell"
+        subTitle="$100"
+        image={require("./app/assets/jacket.png")}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
