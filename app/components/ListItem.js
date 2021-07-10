@@ -3,6 +3,7 @@ import { View, StyleSheet, Image } from "react-native";
 import AppText from "./AppText";
 
 const ListItem = ({ image, title, subTitle }) => {
+  console.log(title);
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
