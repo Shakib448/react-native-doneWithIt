@@ -1,7 +1,8 @@
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, View } from "react-native";
 import ListItem from "../components/ListItem";
-import Constants from "expo-constants";
+import Screen from "./../components/Screen";
+import ListIemSeparator from "./../components/ListIemSeparator";
 
 const messages = [
   {
@@ -34,20 +35,15 @@ const MessagesScreen = () => {
   );
 
   return (
-    <View style={styles.screen}>
+    <Screen>
       <FlatList
         data={messages}
         renderItem={renderItem}
         keyExtractor={(message) => message.id.toString()}
+        ItemSeparatorComponent={() => <ListIemSeparator />}
       />
-    </View>
+    </Screen>
   );
 };
 
 export default MessagesScreen;
-
-const styles = StyleSheet.create({
-  screen: {
-    paddingTop: Constants.statusBarHeight,
-  },
-});
