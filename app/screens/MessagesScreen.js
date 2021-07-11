@@ -28,6 +28,7 @@ const initialMessage = [
 
 const MessagesScreen = () => {
   const [messages, setMessage] = useState(initialMessage);
+  const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (message) => {
     // Delete the message from messages
@@ -53,6 +54,29 @@ const MessagesScreen = () => {
         renderItem={renderItem}
         keyExtractor={(message) => message.id.toString()}
         ItemSeparatorComponent={ListIemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessage([
+            {
+              id: 1,
+              title: "T1",
+              description: "D1",
+              image: require("../assets/mosh.png"),
+            },
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/mosh.png"),
+            },
+            {
+              id: 3,
+              title: "T3",
+              description: "D3",
+              image: require("../assets/mosh.png"),
+            },
+          ]);
+        }}
       />
     </Screen>
   );
