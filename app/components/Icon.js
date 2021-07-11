@@ -8,6 +8,7 @@ const Icon = ({
   backgroundColor = "#000",
   iconColor = "#fff",
 }) => {
+  console.log(name);
   return (
     <View
       style={{
