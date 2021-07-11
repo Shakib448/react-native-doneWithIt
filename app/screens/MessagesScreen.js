@@ -40,7 +40,7 @@ const MessagesScreen = () => {
         data={messages}
         renderItem={renderItem}
         keyExtractor={(message) => message.id.toString()}
-        ItemSeparatorComponent={() => <ListIemSeparator />}
+        ItemSeparatorComponent={ListIemSeparator}
       />
     </Screen>
   );
