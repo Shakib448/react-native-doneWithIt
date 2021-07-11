@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import ListItem from "../components/ListItem";
 import Screen from "./../components/Screen";
 import ListIemSeparator from "./../components/ListIemSeparator";
