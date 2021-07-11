@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, Platform, StatusBar, View } from "react-native";
 import AppText from "./AppText";
 
 const ListItem = ({ image, title, subTitle }) => {
