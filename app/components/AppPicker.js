@@ -5,7 +5,6 @@ import {
   TouchableWithoutFeedback,
   Modal,
   Button,
-  Platform,
   FlatList,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
