@@ -14,11 +14,23 @@ import AppText from "./AppText";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-const AppPicker = ({ icon, placeholder, items }) => {
+const AppPicker = ({
+  icon,
+  placeholder,
+  items,
+  onSelectItem,
+  selectedItem,
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const renderItem = ({ item }) => (
-    <PickerItem label={item.label} onPress={() => console.log(item)} />
+    <PickerItem
+      label={item.label}
+      onPress={() => {
+        setModalVisible(false);
+        onSelectItem(item);
+      }}
+    />
   );
 
   return (
@@ -33,7 +45,9 @@ const AppPicker = ({ icon, placeholder, items }) => {
               style={styles.icons}
             />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -43,25 +57,14 @@ const AppPicker = ({ icon, placeholder, items }) => {
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
-        {Platform.OS === "android" ? (
-          <>
-            <Button title="close" onPress={() => setModalVisible(false)} />
-            <FlatList
-              data={items}
-              keyExtractor={(item) => item.value.toString()}
-              renderItem={renderItem}
-            />
-          </>
-        ) : (
-          <Screen>
-            <Button title="close" onPress={() => setModalVisible(false)} />
-            <FlatList
-              data={items}
-              keyExtractor={(item) => item.value.toString()}
-              renderItem={renderItem}
-            />
-          </Screen>
-        )}
+        <Screen style={styles.screen}>
+          <Button title="close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={renderItem}
+          />
+        </Screen>
       </Modal>
     </>
   );
@@ -85,5 +88,8 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+  },
+  screen: {
+    paddingTop: 0,
   },
 });
