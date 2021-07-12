@@ -9,7 +9,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState();
 
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
       <AppTextInput
         placeholder="Email"
@@ -35,6 +35,9 @@ const LoginScreen = () => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+  screen: {
+    padding: 10,
+  },
   logo: {
     width: 80,
     height: 80,
