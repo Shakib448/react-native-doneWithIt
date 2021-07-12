@@ -1,10 +1,10 @@
 import React from "react";
 import AppPicker from "./../AppPicker";
 import ErrorMessage from "./ErrorMessage";
-import { userFormikContext } from "formik";
+import { useFormikContext } from "formik";
 
 const AppFormPicker = ({ items, name, placeholder }) => {
-  const { error, setFiledValue, touched, values } = userFormikContext();
+  const { errors, setFiledValue, touched, values } = useFormikContext();
   return (
     <>
       <AppPicker
@@ -13,7 +13,7 @@ const AppFormPicker = ({ items, name, placeholder }) => {
         placeholder={placeholder}
         selectedItem={values[name]}
       />
-      <ErrorMessage error={error[name]} visible={touched[name]} />
+      <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>
   );
 };

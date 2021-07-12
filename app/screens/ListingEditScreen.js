@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import Screen from "./../components/Screen";
 import * as Yup from "yup";
 import {
@@ -10,36 +10,52 @@ import {
 } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(4).max(4).label("Password"),
+  title: Yup.string().required().min(1).label("Title"),
+  price: Yup.string().required().min(1).max(1000).label("price"),
+  description: Yup.string().label("Description"),
+  category: Yup.string().required().nullable().label("Category"),
 });
+
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Camera", value: 3 },
+];
 
 const LoginScreen = () => {
   return (
     <Screen style={styles.screen}>
-      <Image style={styles.logo} source={require("../assets/logo-red.png")} />
       <AppForm
-        initialValues={{ email: "", password: "" }}
+        initialValues={{
+          title: "",
+          price: "",
+          description: "",
+          category: null,
+        }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <AppFormFiled maxLength={255} name="title" placeholder="Title" />
         <AppFormFiled
           placeholder="Email"
-          icon="email"
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="email-address"
-          name="email"
+          maxLength={8}
+          keyboardType="numeric"
+          name="price"
+        />
+        <AppFormPicker
+          items={categories}
+          name="category"
+          placeholder="Category"
         />
         <AppFormFiled
-          placeholder="Password"
-          icon="lock"
-          autoCapitalize="none"
-          autoCorrect={false}
-          secureTextEntry
-          name="password"
+          multiline
+          maxLength={255}
+          name="description"
+          placeholder="Description"
+          numberOfLines={3}
         />
-        <SubmitButton title="Login" />
+
+        <SubmitButton title="Post" />
       </AppForm>
     </Screen>
   );
@@ -50,12 +66,5 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   screen: {
     padding: 10,
-  },
-  logo: {
-    width: 80,
-    height: 80,
-    alignSelf: "center",
-    marginTop: 50,
-    marginBottom: 20,
   },
 });
