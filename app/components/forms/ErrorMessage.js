@@ -1,5 +1,5 @@
 import React from "react";
-import AppText from "./AppText";
+import AppText from "../AppText";
 
 const ErrorMessage = ({ error, color, visible }) => {
   if (!visible || !error) return null;
