@@ -20,7 +20,7 @@ const categories = [
 ];
 
 export default function App() {
-  const [category, setCategory] = useState(categories[0]);
+  const [category, setCategory] = useState("");
   return (
     <Screen>
       <AppPicker

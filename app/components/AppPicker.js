@@ -57,7 +57,11 @@ const AppPicker = ({
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
         <Screen style={styles.screen}>
-          <Button title="close" onPress={() => setModalVisible(false)} />
+          <Button
+            title="close"
+            onPress={() => setModalVisible(false)}
+            color={defaultStyles.colors.medium}
+          />
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
