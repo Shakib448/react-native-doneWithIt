@@ -29,8 +29,8 @@ const LoginScreen = () => {
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
-              onChangeText={handleChange("email")}
               onBlur={() => setFieldTouched("email")}
+              onChangeText={handleChange("email")}
             />
             <ErrorMessage
               color="danger"
@@ -43,8 +43,8 @@ const LoginScreen = () => {
               autoCapitalize="none"
               autoCorrect={false}
               secureTextEntry
-              onChangeText={handleChange("password")}
               onBlur={() => setFieldTouched("password")}
+              onChangeText={handleChange("password")}
             />
             <ErrorMessage
               color="danger"
