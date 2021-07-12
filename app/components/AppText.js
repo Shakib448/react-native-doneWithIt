@@ -1,21 +1,19 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
-import colors from "../config/colors";
+import { Text } from "react-native";
+import defaultStyles from "../config/styles";
 
 const AppText = ({ children, style, color = "black" }) => {
   return (
-    <Text style={[styles.text, { color: colors[color] }, style]}>
+    <Text
+      style={[
+        style,
+        defaultStyles.text,
+        { color: defaultStyles.colors[color] },
+      ]}
+    >
       {children}
     </Text>
   );
 };
 
 export default AppText;
-
-const styles = StyleSheet.create({
-  text: {
-    color: colors.black,
-    fontSize: 16,
-    fontFamily: "Roboto",
-  },
-});
