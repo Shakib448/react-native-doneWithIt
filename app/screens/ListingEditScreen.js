@@ -47,6 +47,7 @@ const LoginScreen = () => {
           items={categories}
           name="category"
           placeholder="Category"
+          width="50%"
         />
         <AppFormFiled
           multiline
