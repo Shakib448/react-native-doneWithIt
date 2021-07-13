@@ -20,12 +20,14 @@ const AppPicker = ({
   onSelectItem,
   selectedItem,
   PickerItemComponent = PickerItem,
+  numColumns = 1,
   width = "100%",
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const renderItem = ({ item }) => (
     <PickerItemComponent
+      item={item}
       label={item.label}
       onPress={() => {
         setModalVisible(false);
@@ -75,6 +77,7 @@ const AppPicker = ({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={renderItem}
+            numColumns={numColumns}
           />
         </Screen>
       </Modal>

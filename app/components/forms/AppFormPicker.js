@@ -9,12 +9,14 @@ const AppFormPicker = ({
   PickerItemComponent,
   width,
   placeholder,
+  numColumns,
 }) => {
   const { errors, setFiledValue, touched, values } = useFormikContext();
   return (
     <>
       <AppPicker
         items={items}
+        numColumns={numColumns}
         onSelectItem={(item) => setFiledValue(name, item)}
         placeholder={placeholder}
         selectedItem={values[name]}
