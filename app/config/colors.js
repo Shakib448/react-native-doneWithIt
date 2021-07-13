@@ -13,4 +13,5 @@ export default {
   lightBlue: "#65ACF1",
   blue: "#5B85E9",
   parpel: "#A06EE9",
+  lightGray: "#7E8CA3",
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
 
 const Icon = ({
   name,
@@ -19,7 +19,15 @@ const Icon = ({
         alignItems: "center",
       }}
     >
-      <MaterialCommunityIcons name={name} color={iconColor} size={size * 0.5} />
+      {name === "browser" ? (
+        <Octicons name={name} color={iconColor} size={size * 0.5} />
+      ) : (
+        <MaterialCommunityIcons
+          name={name}
+          color={iconColor}
+          size={size * 0.5}
+        />
+      )}
     </View>
   );
 };
