@@ -37,10 +37,11 @@ const LoginScreen = () => {
       >
         <AppFormFiled maxLength={255} name="title" placeholder="Title" />
         <AppFormFiled
-          placeholder="Email"
+          placeholder="Price"
           maxLength={8}
           keyboardType="numeric"
           name="price"
+          width={120}
         />
         <AppFormPicker
           items={categories}
