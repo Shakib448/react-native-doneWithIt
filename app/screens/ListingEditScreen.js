@@ -8,6 +8,8 @@ import {
   SubmitButton,
   AppFormPicker,
 } from "../components/forms";
+import CategoryPickerItem from "../components/CategoryPickerItem";
+import defaultStyles from "../config/styles";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -17,9 +19,60 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Camera", value: 3 },
+  {
+    label: "Furniture",
+    value: 1,
+    backgroundColor: defaultStyles.colors.primary,
+    icon: "floor-lamp",
+  },
+  {
+    label: "Cars",
+    value: 2,
+    backgroundColor: defaultStyles.colors.lightOrange,
+    icon: "car",
+  },
+  {
+    label: "Camera",
+    value: 3,
+    backgroundColor: defaultStyles.colors.yellow,
+    icon: "camera",
+  },
+  {
+    label: "Games",
+    value: 4,
+    backgroundColor: defaultStyles.colors.secondary,
+    icon: "cards",
+  },
+  {
+    label: "Clothing",
+    value: 5,
+    backgroundColor: defaultStyles.colors.lightCyan,
+    icon: "shoe-heel",
+  },
+  {
+    label: "Sports",
+    value: 6,
+    backgroundColor: defaultStyles.colors.lightBlue,
+    icon: "basketball",
+  },
+  {
+    label: "Movies & Music",
+    value: 7,
+    backgroundColor: defaultStyles.colors.blue,
+    icon: "headphones",
+  },
+  {
+    label: "Books",
+    value: 8,
+    backgroundColor: defaultStyles.colors.parpel,
+    icon: "book-open-variant",
+  },
+  {
+    label: "Others",
+    value: 9,
+    backgroundColor: defaultStyles.colors.lightGray,
+    icon: "browser",
+  },
 ];
 
 const LoginScreen = () => {
@@ -37,15 +90,19 @@ const LoginScreen = () => {
       >
         <AppFormFiled maxLength={255} name="title" placeholder="Title" />
         <AppFormFiled
-          placeholder="Email"
+          placeholder="Price"
           maxLength={8}
           keyboardType="numeric"
           name="price"
+          width={120}
         />
         <AppFormPicker
           items={categories}
           name="category"
           placeholder="Category"
+          width="50%"
+          PickerItemComponent={CategoryPickerItem}
+          numColumns={3}
         />
         <AppFormFiled
           multiline

@@ -7,4 +7,11 @@ export default {
   light: "#f8f4f4",
   danger: "#ff5252",
   dark: "#0c0c0c",
+  lightOrange: "#F19C57",
+  yellow: "#F3D24F",
+  lightCyan: "#64CABE",
+  lightBlue: "#65ACF1",
+  blue: "#5B85E9",
+  parpel: "#A06EE9",
+  lightGray: "#7E8CA3",
 };

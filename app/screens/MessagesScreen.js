@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import { FlatList } from "react-native";
-import ListItem from "../components/ListItem";
-import Screen from "./../components/Screen";
-import ListIemSeparator from "./../components/ListIemSeparator";
-import ListItemDeleteAction from "./../components/ListItemDeleteAction";
+import Screen from "../components/Screen";
+import {
+  ListItem,
+  ListIemSeparator,
+  ListItemDeleteAction,
+} from "../components/lists";
 
 const initialMessage = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "Muktadir",
+    description: "Hey This Item is available",
     image: require("../assets/mosh.png"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/mosh.png"),
-  },
-  {
-    id: 3,
-    title: "T3",
-    description: "D3",
+    title: "Mosh Hamadani",
+    description: "You are the boss",
     image: require("../assets/mosh.png"),
   },
 ];
@@ -59,20 +55,14 @@ const MessagesScreen = () => {
           setMessage([
             {
               id: 1,
-              title: "T1",
-              description: "D1",
+              title: "Muktadir",
+              description: "Hey This Item is available",
               image: require("../assets/mosh.png"),
             },
             {
               id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/mosh.png"),
-            },
-            {
-              id: 3,
-              title: "T3",
-              description: "D3",
+              title: "Mosh Hamadani",
+              description: "You are the boss",
               image: require("../assets/mosh.png"),
             },
           ]);
