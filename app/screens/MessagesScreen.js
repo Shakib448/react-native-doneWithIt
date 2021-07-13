@@ -8,22 +8,14 @@ import ListItemDeleteAction from "./../components/ListItemDeleteAction";
 const initialMessage = [
   {
     id: 1,
-    title:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sunt, cumque voluptas porro praesentium laborum! Quia, molestias perspiciatis. Labore, veniam.",
-    description:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sunt, cumque voluptas porro praesentium laborum! Quia, molestias perspiciatis. Labore, veniam.",
+    title: "Muktadir",
+    description: "Hey This Item is available",
     image: require("../assets/mosh.png"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/mosh.png"),
-  },
-  {
-    id: 3,
-    title: "T3",
-    description: "D3",
+    title: "Mosh Hamadani",
+    description: "You are the boss",
     image: require("../assets/mosh.png"),
   },
 ];
@@ -61,20 +53,14 @@ const MessagesScreen = () => {
           setMessage([
             {
               id: 1,
-              title: "T1",
-              description: "D1",
+              title: "Muktadir",
+              description: "Hey This Item is available",
               image: require("../assets/mosh.png"),
             },
             {
               id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/mosh.png"),
-            },
-            {
-              id: 3,
-              title: "T3",
-              description: "D3",
+              title: "Mosh Hamadani",
+              description: "You are the boss",
               image: require("../assets/mosh.png"),
             },
           ]);
