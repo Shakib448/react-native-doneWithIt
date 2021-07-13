@@ -9,6 +9,7 @@ import {
   AppFormPicker,
 } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
+import defaultStyles from "../config/styles";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -18,9 +19,60 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-  { label: "Furniture", value: 1, backgroundColor: "red", icon: "apps" },
-  { label: "Clothing", value: 2, backgroundColor: "green", icon: "email" },
-  { label: "Camera", value: 3, backgroundColor: "blue", icon: "lock" },
+  {
+    label: "Furniture",
+    value: 1,
+    backgroundColor: defaultStyles.colors.primary,
+    icon: "apps",
+  },
+  {
+    label: "Cars",
+    value: 2,
+    backgroundColor: defaultStyles.colors.lightOrange,
+    icon: "email",
+  },
+  {
+    label: "Camera",
+    value: 3,
+    backgroundColor: defaultStyles.colors.yellow,
+    icon: "lock",
+  },
+  {
+    label: "Games",
+    value: 4,
+    backgroundColor: defaultStyles.colors.secondary,
+    icon: "lock",
+  },
+  {
+    label: "Clothing",
+    value: 5,
+    backgroundColor: defaultStyles.colors.lightCyan,
+    icon: "lock",
+  },
+  {
+    label: "Sports",
+    value: 6,
+    backgroundColor: defaultStyles.colors.lightBlue,
+    icon: "lock",
+  },
+  {
+    label: "Movies & Music",
+    value: 7,
+    backgroundColor: defaultStyles.colors.blue,
+    icon: "lock",
+  },
+  {
+    label: "Books",
+    value: 8,
+    backgroundColor: defaultStyles.colors.parpel,
+    icon: "lock",
+  },
+  {
+    label: "Others",
+    value: 9,
+    backgroundColor: defaultStyles.colors.medium,
+    icon: "lock",
+  },
 ];
 
 const LoginScreen = () => {

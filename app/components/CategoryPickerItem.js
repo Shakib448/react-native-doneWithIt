@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     width: "33%",
   },
   label: {
-    marginTop: 5,
+    marginTop: 10,
+    marginBottom: 20,
     textAlign: "center",
   },
 });
