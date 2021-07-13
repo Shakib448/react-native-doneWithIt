@@ -8,6 +8,7 @@ import {
   SubmitButton,
   AppFormPicker,
 } from "../components/forms";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -48,6 +49,7 @@ const LoginScreen = () => {
           name="category"
           placeholder="Category"
           width="50%"
+          PickerItemComponent={CategoryPickerItem}
         />
         <AppFormFiled
           multiline
