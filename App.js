@@ -20,24 +20,5 @@ import AppText from "./app/components/AppText";
 import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageUris, setImageUris] = useState([]);
-
-  const handelAdd = (uri) => {
-    setImageUris([...imageUris, uri]);
-  };
-
-  const handleRemove = (uri) => {
-    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  };
-
-  return (
-    <Screen>
-      <ImageInputList
-        onChangeImage={(uri) => setImageUris(uri)}
-        onAddImage={handelAdd}
-        onRemoveImage={handleRemove}
-        imageUris={imageUris}
-      />
-    </Screen>
-  );
+  return <ListingEditScreen />;
 }
