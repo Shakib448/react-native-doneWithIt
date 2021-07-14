@@ -23,7 +23,11 @@ const AppFormPicker = ({
         width={width}
         PickerItemComponent={PickerItemComponent}
       />
-      <ErrorMessage error={errors[name]} visible={touched[name]} />
+      <ErrorMessage
+        color="danger"
+        error={errors[name]}
+        visible={touched[name]}
+      />
     </>
   );
 };
