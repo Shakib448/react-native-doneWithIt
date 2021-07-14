@@ -4,16 +4,16 @@ import ErrorMessage from "./ErrorMessage";
 import { useFormikContext } from "formik";
 
 const FormImagePicker = ({ name, color }) => {
-  const { errors, setFiledValue, touched, values } = useFormikContext();
+  const { errors, setFieldValue, touched, values } = useFormikContext();
 
   const imageUris = values[name];
 
   const handelAdd = (uri) => {
-    setFiledValue(name, [...imageUris, uri]);
+    setFieldValue(name, [...imageUris, uri]);
   };
 
   const handleRemove = (uri) => {
-    setImageUris(
+    setFieldValue(
       name,
       imageUris.filter((imageUri) => imageUri !== uri)
     );
