@@ -7,6 +7,7 @@ import {
   AppFormFiled,
   SubmitButton,
   AppFormPicker,
+  FormImagePicker,
 } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import defaultStyles from "../config/styles";
@@ -16,6 +17,7 @@ const validationSchema = Yup.object().shape({
   price: Yup.string().required().min(1).max(1000).label("price"),
   description: Yup.string().label("Description"),
   category: Yup.string().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select at least one image"),
 });
 
 const categories = [
@@ -84,11 +86,15 @@ const LoginScreen = () => {
           price: "",
           description: "",
           category: null,
+          images: [],
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images" color="danger" />
+
         <AppFormFiled maxLength={255} name="title" placeholder="Title" />
+
         <AppFormFiled
           placeholder="Price"
           maxLength={8}
@@ -96,6 +102,7 @@ const LoginScreen = () => {
           name="price"
           width={120}
         />
+
         <AppFormPicker
           items={categories}
           name="category"
@@ -104,6 +111,7 @@ const LoginScreen = () => {
           PickerItemComponent={CategoryPickerItem}
           numColumns={3}
         />
+
         <AppFormFiled
           multiline
           maxLength={255}

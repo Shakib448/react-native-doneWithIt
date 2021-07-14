@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import Icon from "./Icon";
 import AppText from "./AppText";
 
-const CategoryPickerItem = ({ onPress, item }) => {
+const CategoryPickerItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80} />

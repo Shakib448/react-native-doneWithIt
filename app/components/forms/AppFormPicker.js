@@ -11,19 +11,23 @@ const AppFormPicker = ({
   placeholder,
   numColumns,
 }) => {
-  const { errors, setFiledValue, touched, values } = useFormikContext();
+  const { errors, setFieldValue, touched, values } = useFormikContext();
   return (
     <>
       <AppPicker
         items={items}
         numColumns={numColumns}
-        onSelectItem={(item) => setFiledValue(name, item)}
+        onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
         selectedItem={values[name]}
         width={width}
         PickerItemComponent={PickerItemComponent}
       />
-      <ErrorMessage error={errors[name]} visible={touched[name]} />
+      <ErrorMessage
+        color="danger"
+        error={errors[name]}
+        visible={touched[name]}
+      />
     </>
   );
 };
