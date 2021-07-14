@@ -22,16 +22,6 @@ import ImageInput from "./app/components/ImageInput";
 export default function App() {
   const [imageUri, setImageUri] = useState();
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-    if (!granted) {
-      alert("You need to permission to access your photos");
-    }
-  };
-  useEffect(() => {
-    requestPermission();
-  }, []);
-
   return (
     <Screen>
       {/* <Button title="Select Image" onPress={selectImage} /> */}
