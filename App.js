@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextInput, Text, Switch } from "react-native";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
@@ -14,7 +14,23 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
+import * as ImagePicker from "expo-image-picker";
+import AppText from "./app/components/AppText";
 
 export default function App() {
-  return <ListingEditScreen />;
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
+    if (!granted) {
+      alert("You need to permission to access your photos");
+    }
+  };
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  return (
+    <Screen>
+      <AppText>Shakib</AppText>
+    </Screen>
+  );
 }
