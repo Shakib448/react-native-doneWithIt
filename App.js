@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextInput, Text, Switch } from "react-native";
+import { TextInput, Text, Switch, Button, Image } from "react-native";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -15,9 +15,12 @@ import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 import AppText from "./app/components/AppText";
 
 export default function App() {
+  const [imageUri, setImageUri] = useState();
+
   const requestPermission = async () => {
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (!granted) {
@@ -28,9 +31,22 @@ export default function App() {
     requestPermission();
   }, []);
 
+  const selectImage = async () => {
+    try {
+      const { cancelled, uri: imageUri } =
+        await ImagePicker.launchImageLibraryAsync();
+      if (!cancelled) {
+        setImageUri(imageUri);
+      }
+    } catch (error) {
+      console.log("Error reading in image", error);
+    }
+  };
+
   return (
     <Screen>
-      <AppText>Shakib</AppText>
+      <Button title="Select Image" onPress={selectImage} />
+      <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
     </Screen>
   );
 }
