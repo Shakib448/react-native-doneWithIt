@@ -11,16 +11,16 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 
 const ImageInput = ({ imageUri, onChangeImage }) => {
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
   const requestPermission = async () => {
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (!granted) {
       alert("You need to permission to access your photos");
     }
   };
-
-  useEffect(() => {
-    requestPermission();
-  }, []);
 
   const handlePress = () => {
     if (!imageUri) selectImage();
@@ -36,13 +36,12 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
 
   const selectImage = async () => {
     try {
-      const { cancelled, uri: imageUri } =
-        await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.Images,
-          quality: 0.5,
-        });
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 0.5,
+      });
 
-      if (!cancelled) onChangeImage(imageUri);
+      if (!result.cancelled) onChangeImage(result.uri);
     } catch (error) {
       console.log("Error reading in image", error);
     }
