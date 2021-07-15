@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import Screen from "./../components/Screen";
 import * as Yup from "yup";
@@ -11,6 +11,7 @@ import {
 } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import defaultStyles from "../config/styles";
+import * as Location from "expo-location";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -78,6 +79,21 @@ const categories = [
 ];
 
 const LoginScreen = () => {
+  const [location, setLocation] = useState();
+
+  const getLocation = async () => {
+    const { granted } = await Location.requestForegroundPermissionsAsync();
+    if (!granted) return;
+    const {
+      coords: { latitude, longitude },
+    } = await Location.getLastKnownPositionAsync();
+    setLocation({ latitude, longitude });
+  };
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   return (
     <Screen style={styles.screen}>
       <AppForm
@@ -88,7 +104,7 @@ const LoginScreen = () => {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" color="danger" />

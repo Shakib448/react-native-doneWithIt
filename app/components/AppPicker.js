@@ -25,6 +25,8 @@ const AppPicker = ({
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
+  console.log(selectedItem);
+
   const renderItem = ({ item }) => (
     <PickerItemComponent
       item={item}
