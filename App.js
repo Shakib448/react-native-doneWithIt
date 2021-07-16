@@ -38,28 +38,6 @@ const Stack = createStackNavigator();
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = () => (
-  <Tab.Navigator
-    tabBarOptions={{
-      activeBackgroundColor: "tomato",
-      activeTintColor: "white",
-      inactiveBackgroundColor: "#eee",
-      inactiveTintColor: "#000",
-    }}
-  >
-    <Tab.Screen
-      name="Feed"
-      component={Tweets}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <MaterialCommunityIcons name="home" size={size} color={color} />
-        ),
-      }}
-    />
-    <Tab.Screen name="Account" component={Account} />
-  </Tab.Navigator>
-);
-
 const StackNavigator = () => (
   <Stack.Navigator
     screenOptions={{
@@ -80,6 +58,13 @@ const StackNavigator = () => (
       options={({ route }) => ({ title: route.params.id })}
     />
   </Stack.Navigator>
+);
+
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={StackNavigator} />
+    <Tab.Screen name="Account" component={Account} />
+  </Tab.Navigator>
 );
 
 export default function App() {
