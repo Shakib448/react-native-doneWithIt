@@ -7,7 +7,10 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 const Link = () => {
   const navigation = useNavigation();
   return (
-    <Button title="Click" onPress={() => navigation.navigate("TweetDetails")} />
+    <Button
+      title="Click"
+      onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
+    />
   );
 };
 
@@ -18,9 +21,9 @@ const Tweets = () => (
   </Screen>
 );
 
-const TweetDetails = () => (
+const TweetDetails = ({ route }) => (
   <Screen>
-    <Text>Tweet Details</Text>
+    <Text>Tweet Details {route.params.id} </Text>
   </Screen>
 );
 const Stack = createStackNavigator();
@@ -28,7 +31,12 @@ const Stack = createStackNavigator();
 const StackNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen name="Tweets" component={Tweets} />
-    <Stack.Screen name="TweetDetails" component={TweetDetails} />
+
+    <Stack.Screen
+      name="TweetDetails"
+      component={TweetDetails}
+      options={({ route }) => ({ title: route.params.id })}
+    />
   </Stack.Navigator>
 );
 
