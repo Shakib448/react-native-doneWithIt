@@ -9,7 +9,7 @@ const AccountNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Account" component={AccountScreen} />
-      <Stack.Screen name="ListingDetails" component={MessagesScreen} />
+      <Stack.Screen name="Messages" component={MessagesScreen} />
     </Stack.Navigator>
   );
 };
