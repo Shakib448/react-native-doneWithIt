@@ -22,7 +22,6 @@ import listingsApi from "../api/listings";
 
 const ListingScreen = ({ navigation }) => {
   const [listings, setListings] = useState([]);
-  console.log(listings);
 
   const loadListings = async () => {
     const { data } = await listingsApi.getListings();
@@ -35,9 +34,9 @@ const ListingScreen = ({ navigation }) => {
 
   const renderItem = ({ item }) => (
     <Card
-      title={item.title}
-      subTitle={"$" + item.price}
-      imageUrl={item.images[0].url}
+      title={item?.title}
+      // subTitle={"$" + item?.price}
+      // imageUrl={item.images[0].url}
       onPress={() => navigation.navigate("ListingDetails", item)}
     />
   );
