@@ -4,27 +4,17 @@ import { FlatList, StyleSheet } from "react-native";
 import Card from "../components/Card";
 import colors from "../config/colors";
 import listingsApi from "../api/listings";
-
-// const listing = [
-//   {
-//     id: 1,
-//     title: "Red Jacket for sell",
-//     price: 100,
-//     image: require("../assets/jacket.png"),
-//   },
-//   {
-//     id: 2,
-//     title: "Couch in a great condition",
-//     price: 1000,
-//     image: require("../assets/couch.jpg"),
-//   },
-// ];
+import AppText from "./../components/AppText";
+import AppButton from "../components/AppButton";
 
 const ListingScreen = ({ navigation }) => {
   const [listings, setListings] = useState([]);
+  const [error, setError] = useState(false);
 
   const loadListings = async () => {
-    const { data } = await listingsApi.getListings();
+    const { data, ok } = await listingsApi.getListings();
+    if (!ok) return setError(true);
+    setError(false);
     setListings(data);
   };
 
@@ -43,6 +33,12 @@ const ListingScreen = ({ navigation }) => {
 
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <>
+          <AppText>Couldn't retrieve the listings.</AppText>
+          <AppButton title="Retry" onPress={loadListings} />
+        </>
+      )}
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
