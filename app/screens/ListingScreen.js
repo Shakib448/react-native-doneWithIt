@@ -12,10 +12,11 @@ const ListingScreen = ({ navigation }) => {
   const [error, setError] = useState(false);
 
   const loadListings = async () => {
-    const { data, ok } = await listingsApi.getListings();
+    const { data, ok, problem } = await listingsApi.getListings();
     if (!ok) return setError(true);
     setError(false);
     setListings(data);
+    console.log(problem);
   };
 
   useEffect(() => {
