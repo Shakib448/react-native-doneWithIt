@@ -12,6 +12,7 @@ import {
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import defaultStyles from "../config/styles";
 import useLocation from "./../hooks/useLocation";
+import listingApi from "../api/listings";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -78,8 +79,14 @@ const categories = [
   },
 ];
 
-const LoginScreen = () => {
+const ListingEditScreen = () => {
   const location = useLocation();
+
+  const handleSubmit = async (listing) => {
+    const { ok } = await listingApi.addListings({ ...listing, location });
+    if (!ok) return alert("Could not save the listing");
+    alert("Success");
+  };
 
   return (
     <Screen style={styles.screen}>
@@ -91,7 +98,7 @@ const LoginScreen = () => {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" color="danger" />
@@ -129,7 +136,7 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default ListingEditScreen;
 
 const styles = StyleSheet.create({
   screen: {
