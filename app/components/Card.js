@@ -12,6 +12,7 @@ const Card = ({ title, subTitle, imageUrl, onPress, thumbnailUrl }) => {
           style={styles.image}
           preview={{ uri: thumbnailUrl }}
           uri={imageUrl}
+          tint="light"
         />
         <View style={styles.detailsContainer}>
           <AppText numberOfLines={1} style={styles.title}>
