@@ -19,11 +19,10 @@ const LoginScreen = () => {
   const [loginFailed, setLoginFailed] = useState(false);
 
   const handleSubmit = async ({ email, password }) => {
-    const { data, ok } = await authApi.login(email, password);
-    if (!ok) return setLoginFailed(true);
+    const { ok } = await authApi.login(email, password);
 
+    if (!ok) return setLoginFailed(true);
     setLoginFailed(false);
-    console.log(data);
   };
 
   return (
