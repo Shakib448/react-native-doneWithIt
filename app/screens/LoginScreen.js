@@ -12,15 +12,16 @@ import authApi from "../api/auth";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(4).max(10).label("Password"),
+  password: Yup.string().required().min(4).label("Password"),
 });
 
 const LoginScreen = () => {
   const [loginFailed, setLoginFailed] = useState(false);
 
   const handleSubmit = async ({ email, password }) => {
-    const { data, ok } = authApi.login(email, password);
+    const { data, ok } = await authApi.login(email, password);
     if (!ok) return setLoginFailed(true);
+
     setLoginFailed(false);
     console.log(data);
   };

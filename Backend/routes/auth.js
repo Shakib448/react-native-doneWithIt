@@ -20,6 +20,7 @@ router.post("/", validateWith(schema), (req, res) => {
     { userId: user.id, name: user.name, email },
     "jwtPrivateKey"
   );
+  console.log(token);
   res.send(token);
 });
 
