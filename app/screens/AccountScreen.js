@@ -5,7 +5,7 @@ import { StyleSheet, View, FlatList } from "react-native";
 import colors from "../config/colors";
 import Icon from "./../components/Icon";
 import ListItemSeparatorComponent from "../components/lists/ListIemSeparator";
-import AuthContext from "./../context/context";
+import AuthContext from "../auth/context";
 
 const menuItems = [
   {

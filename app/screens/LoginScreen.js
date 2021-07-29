@@ -10,7 +10,7 @@ import {
 } from "../components/forms";
 import authApi from "../api/auth";
 import jwtDecode from "jwt-decode";
-import AuthContext from "./../context/context";
+import AuthContext from "../auth/context";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
